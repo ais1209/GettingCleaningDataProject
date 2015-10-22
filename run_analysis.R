@@ -62,4 +62,7 @@ for (ii in 1:nrow(subjectID)){ # same no of rows as in myData
 
 # Move the subjectID column to position 1 in the data frame
 myData <- myData[c(ncol(myData),1:ncol(myData)-1)]
-head(myData,3)
+
+# Select subset with means for each activity for each subject.
+finalData <- ddply(myData,.(SubjectID, Activity),numcolwise(mean,na.rm = TRUE))
+write.table(finalData,"FinalDataSet.txt",row.names = FALSE)
