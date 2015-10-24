@@ -4,11 +4,18 @@
 
 ## Data Dictionary
 subject
+* subject id
 activity
+* activity type: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
 tbodyacc-mean-x
+
 tbodyacc-mean-y
+
 tbodyacc-mean-z
+
 tbodyacc-std-x
+
 tbodyacc-std-y
 tbodyacc-std-z
 tgravityacc-mean-x
