@@ -18,5 +18,5 @@ The names of the variables were changed according to the following rules:
 * Not have underscores, dots or whitespaces
 
 ### Code
-Script run_analysis.R performs the operations described in steps 1--6 above. Note that the "-" in the variable names was left in for readability with spreadsheet software, but read.table replaces them by "."  To view the file with LibreOffice, OpenOffice or Excel, open the file with the Separated by: Space option (or its Excel equivalent).  To view the file with R use read.table with header = TRUE option; to replace "." in the variable names use  dataset_name <- gsub("\\.","",names(dataset_name)).
+Script *run_analysis.R* performs the operations described in steps 1--6 above. Note that the "-" in the variable names was left in for readability with spreadsheet software, but read.table replaces them by "."  To view the file with LibreOffice, OpenOffice or Excel, open the file with the *Separated by: Space* option (or its Excel equivalent). To view the file with R use 'read.table' with header = TRUE option; to replace "." in the variable names use  ''' dataset_name <- gsub("\\.","",names(dataset_name))'''
  
