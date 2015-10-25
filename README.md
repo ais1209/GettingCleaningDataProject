@@ -19,7 +19,8 @@ The names of the variables were changed according to the following rules:
 See *CodeBook.md* for details.
 
 ### Code
-Script *run_analysis.R* performs the operations described in steps 1--6 above. The input is the raw accelerometer data set and the output is a text file with the tidy data set. The Transformations section in the codebook contains more detailed explanations of the steps performed in the analysis. 
+Script *run_analysis.R* performs the operations described in steps 1--6 above. The input is the raw accelerometer data set and the output is a text file with the tidy data set. Once the raw data at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip is downloaded and unzipped (which creates an additional directory), run the script from the directory where you have downloaded the zip file. No parameters are needed.
 
-Note that the "-" in the tidy set variable names was left in for readability with spreadsheet software, but `read.table` replaces it by "."  To view the file with LibreOffice, OpenOffice or Excel, open the file with the *Separated by: Space* option (or its Excel equivalent). To view the file with R, use `read.table` with the `header = TRUE` option; to replace "." in the variable names use  ``` dataset_name <- gsub("\\.","",names(dataset_name))```
- 
+The Transformations section in the codebook contains more detailed explanations of the steps performed in the analysis. 
+
+Note that the "-" in the tidy set variable names was left in for readability with spreadsheet software, but when loading the text file with `read.table`, it replaces "-" by "."  To view the file with LibreOffice, OpenOffice or Excel, open the file with the *Separated by: Space* option (or its Excel equivalent). To view the file with R, use `read.table` with the `header = TRUE` option; to replace "." in the variable names use  ``` dataset_name <- gsub("\\.","",names(dataset_name))```
