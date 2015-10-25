@@ -56,72 +56,43 @@ tBodyGyroJerkMean
 ```
 
 ## Transformations
+The following operations were performed on the original data set:
 
 ## Data Dictionary
+```
 subject: subject id
-
 activity: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
-
 tbodyacc-mean-x
-
 tbodyacc-mean-y
-
 tbodyacc-mean-z
-
 tbodyacc-std-x
-
 tbodyacc-std-y
-
 tbodyacc-std-z
-
 tgravityacc-mean-x
-
 tgravityacc-mean-y
-
 tgravityacc-mean-z
-
 tgravityacc-std-x
-
 tgravityacc-std-y
-
 tgravityacc-std-z
-
 tbodyaccjerk-mean-x
-
 tbodyaccjerk-mean-y
-
 tbodyaccjerk-mean-z
-
 tbodyaccjerk-std-x
-
 tbodyaccjerk-std-y
-
 tbodyaccjerk-std-z
-
 tbodygyro-mean-x
-
 tbodygyro-mean-y
-
 tbodygyro-mean-z
-
 tbodygyro-std-x
-
 tbodygyro-std-y
-
 tbodygyro-std-z
-
 tbodygyrojerk-mean-x
-
 tbodygyrojerk-mean-y
-
 tbodygyrojerk-mean-z
-
 tbodygyrojerk-std-x
-
 tbodygyrojerk-std-y
-
 tbodygyrojerk-std-z
-
+```
 tbodyaccmag-mean
 
 tbodyaccmag-std
