@@ -65,7 +65,7 @@ The following operations were performed on the original data set:
 
 3. The columns in the subset at step 2 were labeled according to the information in the *features.txt* file, which contains an ordered  list of all the variable names. 
 
-4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt* and y_train.txt and y_test.txt (which were merged, as well). These two files list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt. In the (almost) tidy data set, each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. The resulting data set had 80 columns.
+4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt*, *y_train.txt*, and *y_test.txt* (the latter two were merged). The *y_.txt* files list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt as numbers. In the resulting data set, which has 80 columns, each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. 
 
 5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *subject_train.txt* and *subject_test.txt* files. The resulting data set had 81 columns.
 
