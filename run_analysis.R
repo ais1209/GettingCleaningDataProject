@@ -1,6 +1,6 @@
-#file <- download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",destfile = "Dataset.zip")
+# file <- download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",destfile = "Dataset.zip")
 # system("unzip Dataset.zip")
-#list.files(".")
+# list.files(".")
 
 library(data.table)
 library(reshape2)
@@ -52,7 +52,7 @@ for (ii in 1:nrow(activity)){ # same no of rows as in myData
 myData <- myData[c(ncol(myData),1:ncol(myData)-1)]
 
 # ----------------------------------- Task 5 -----------------------------------------
-# Add the Subject ID to the data set
+# Add the subject to the data set
 subjectTrain <- read.csv("UCI HAR Dataset/train/subject_train.txt",sep="",header=FALSE)
 subjectTest <- read.csv("UCI HAR Dataset/test/subject_test.txt",sep="",header=FALSE)
 subject <- rbind(subjectTrain,subjectTest,deparse.level=0)
@@ -61,7 +61,7 @@ for (ii in 1:nrow(subject)){ # same no of rows as in myData
     myData$subject[ii] <- subject$V1[ii]
 }
 
-# Move the subjectID column to position 1 in the data frame
+# Move the subject column to position 1 in the data frame
 myData <- myData[c(ncol(myData),1:ncol(myData)-1)]
 
 # Select subset with means for each activity for each subject and clean up variable names.

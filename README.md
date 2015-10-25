@@ -15,6 +15,7 @@ The names of the variables were changed according to the following rules:
 * Descriptive
 * Not duplicated
 * Not have underscores, dots or white spaces
+
 See *CodeBook.md* for details.
 
 ### Code

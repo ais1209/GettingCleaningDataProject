@@ -61,19 +61,19 @@ The following operations were performed on the original data set:
 
 1. The *train* and *test* data sets were merged by rows, with the observations from *train* occupying the first 7352 rows and the ones from *test*, the remaining 2947. The resulting data set consisted of 10299 rows by 561 columns.
 
-2. The features (columns) containing the mean and standard deviation of the measurements were extracted by comparing row numbers in the merged data set and the *feature.txt* file, which contains variable names. The resulting subset contained 10299 rows by 79 columns.
+2. The features (columns) containing the mean and standard deviation of the measurements were extracted by comparing column numbers in the merged data set with row numbers in the *feature.txt* file, which contains variable names. In a nutshell, row numbers corresponding to variables containing *mean* or *std* in the feature file were obtained; the script then proceeded to extract the columns from the merged set at step 1 which had the same identifying number. Note that the number of rows in the feature file corresponds to the number of columns in the merged data set. The resulting subset contained 10299 rows by 79 columns.
 
 3. The columns in the subset at step 2 were labeled according to the information in the *features.txt* file, which contains an ordered  list of all the variable names. 
 
-4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt* and y_train.txt and y_test.txt. These two filed list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt. Each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. The resulting data set had 80 columns.
+4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt* and y_train.txt and y_test.txt (which were merged, as well). These two filed list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt. Each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. The resulting data set had 80 columns.
 
-5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *y_.txt* files corresponding to the *train* and *test* data sets. The resulting data set had 81 columns.
+5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *subject_train.txt* and *subject_test.txt* files. The resulting data set had 81 columns.
 
 6. Some column manipulation was performed to move the `subject` and `activity` columns to the first and second positions.
 
-7. A new subset was created from the data set at step 6, with means for each activity and subject; the resulting data set had 180 rows and 81 columns. Since there were 30 subjects, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
+7. A new subset was created from the data set at step 6, by applying `ddply` to calculate the mean values for each activity and subject. The resulting data set had 180 rows and 81 columns. Since there were 30 subjects, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
 
-8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed, to comply with the rules for naming variables in a tidy data set. The "-" character was left in for readability, as names such as `tbodygyrojerkmagmean` may be difficult to comprehend.
+8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed to comply with the rules for naming variables in a tidy data set. The "-" character was left in for readability, as names such as `tbodygyrojerkmagmean` may be difficult to comprehend.
 
 9. The tidy data set was checked for presence of duplicate variables.
 
