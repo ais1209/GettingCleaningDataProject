@@ -71,7 +71,7 @@ The following operations were performed on the original data set:
 
 6. Some column manipulation was performed to move the `subject` and `activity` columns to the first and second positions.
 
-7. A new subset was created from the data set at step 6, by applying `ddply` to calculate the mean values for each activity and subject. The resulting data set had 180 rows and 81 columns. Since there were 30 subjects, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
+7. A new subset was created from the data set at step 6, by applying `ddply` to calculate the mean values of all the numeric variables for each activity and subject. The resulting data set had 180 rows and 81 columns. Since there were 30 subjects, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
 
 8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed to comply with the rules for naming variables in a tidy data set. The "-" was left in for readability; names such as `tbodygyrojerkmagmean` may be difficult to comprehend.
 
