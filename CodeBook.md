@@ -4,7 +4,9 @@
 
 ## Data Dictionary
 subject: subject id
+
 activity: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
 tbodyacc-mean-x
 
 tbodyacc-mean-y
