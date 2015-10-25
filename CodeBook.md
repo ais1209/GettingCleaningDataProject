@@ -57,14 +57,23 @@ tBodyGyroJerkMean
 There are 561 variables.
 ## Transformations
 The following operations were performed on the original data set:
+
 1. The *train* and *test* data sets were merged by rows, with the observations from *train* occupying the first 7352 rows and the ones from *test*, the remaining 2947. `allData` was the resulting 10299 rows by 561 columns data set.
+
 2. The features containing mean and standard deviation of the measurements were selected; the resulting data set contained 10299 rows by 79 columns.
+
 3. Columns were labeled according to the information in the two features.txt files corresponding to the *train* and *test* data sets. 
+
 4. Each row corresponds to a particular activity; the `activity`  variable was created, which assigned a name to each row according to *activity_labels.txt*.
+
 5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *y_test.txt* files corresponding to the *train* and *test* data sets. The resulting data set had 81 columns.
+
 6. Some column manipulation was performed to move the `subject` and `activity` columns (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). to the first position.
+
 7. A subset was created, with means for each activity and subject; the resulting data set had 180 rows and 81 columns. Since there were 30 subject, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
+
 8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed, to comply with the rules for naming variables in a tidy data set. The "-" character was left in for readability, as it is difficult to understand names such as `tbodygyrojerkmagmean`. 
+
 9. The data set was saved to a text file. The user is provided with instructions on how to read the data set with either R or a spreadsheet sofware.
  
 
