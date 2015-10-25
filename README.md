@@ -18,6 +18,6 @@ The names of the variables were changed according to the following rules:
 * Not have underscores, dots or whitespaces
 
 ### Code
-{\bf run_analysis.R} performs the operations described in steps 1 --6 above. 
+<bf> run_analysis.R<\bf> performs the operations described in steps 1 --6 above. 
 Note that the "-" in the variable names was left in for readability with spreadsheet software, but read.table replaces them by "." Please see the downloading instructions for further details.
  
