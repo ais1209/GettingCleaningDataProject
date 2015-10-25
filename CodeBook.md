@@ -1,13 +1,13 @@
 # Code Book for Cleaning Samsung Galaxy S Accelerometer Data Set
-## Description of Data Set
+## Description of the Data Set
 This data set is a tidy version of the Samsung Galaxy S accelerometer measurement set (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). A complete desription of the original data set can be found at http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.names.
 
-The original data set consists of measurements collected from 30 volunteers, divided in a training set (70%) and a test set (30%). Each subject performed a series of six activities; the variables measured represented 3-axial time domain signals from the accelerometer and gyroscope 3-axial (tAcc-XYZ and tGyro-XYZ). These measurements were used to calculate the body linear acceleration and angular velocity to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also, the magnitudes of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). Frequency domain signals were obtained using the Fast Fourier Transform (FFT): fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. *Note that 't' indicates time-domain signals and 'f' indicate frequency-domain signals. 
+The original data set consists of measurements collected from 30 volunteers, divided in a training set (70%) and a test set (30%). Each subject performed a series of six activities; the variables measured represented 3-axial time domain signals from the accelerometer and gyroscope (tAcc-XYZ and tGyro-XYZ). These measurements were used to calculate the body linear acceleration and angular velocity to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). The magnitudes of these three-dimensional signals were calculated using the Euclidean norm: tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag. Frequency domain signals were obtained using the Fast Fourier Transform (FFT): fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. Note that 't' indicates time-domain signals, 'f' indicates frequency-domain signals, and '-XYZ' denotes 3-axial signals in the X, Y and Z directions.
 
 These signals were used to estimate variables of the feature vector for each pattern:  
-'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-```tBodyAcc-XYZ,
+```
+tBodyAcc-XYZ,
 tGravityAcc-XYZ,
 tBodyAccJerk-XYZ,
 tBodyGyro-XYZ,
@@ -54,30 +54,35 @@ tBodyAccJerkMean
 tBodyGyroMean
 tBodyGyroJerkMean
 ```
-There are 561 variables.
+The raw data set contains 561 variables; there is no information related to units. The tidy data set contains 81 variables, which represent the average of each measurement of mean and standard deviation for each activity and each subject. There are 180 rows, corresponding to 30 subjects each performing 6 activities.
+
 ## Transformations
 The following operations were performed on the original data set:
 
-1. The *train* and *test* data sets were merged by rows, with the observations from *train* occupying the first 7352 rows and the ones from *test*, the remaining 2947. `allData` was the resulting 10299 rows by 561 columns data set.
+1. The *train* and *test* data sets were merged by rows, with the observations from *train* occupying the first 7352 rows and the ones from *test*, the remaining 2947. The resulting data set consisted of 10299 rows by 561 columns.
 
-2. The features containing mean and standard deviation of the measurements were selected; the resulting data set contained 10299 rows by 79 columns.
+2. The features (columns) containing the mean and standard deviation of the measurements were extracted by comparing row numbers in the merged data set and the *feature.txt* file, which contains variable names. The resulting subset contained 10299 rows by 79 columns.
 
-3. Columns were labeled according to the information in the two features.txt files corresponding to the *train* and *test* data sets. 
+3. The columns in the subset at step 2 were labeled according to the information in the *features.txt* file, which contains an ordered  list of all the variable names. 
 
-4. Each row corresponds to a particular activity; the `activity`  variable was created, which assigned a name to each row according to *activity_labels.txt*.
+4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt* and y_train.txt and y_test.txt. These two filed list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt. Each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. The resulting data set had 80 columns.
 
-5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *y_test.txt* files corresponding to the *train* and *test* data sets. The resulting data set had 81 columns.
+5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *y_.txt* files corresponding to the *train* and *test* data sets. The resulting data set had 81 columns.
 
-6. Some column manipulation was performed to move the `subject` and `activity` columns (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). to the first position.
+6. Some column manipulation was performed to move the `subject` and `activity` columns to the first and second positions.
 
-7. A subset was created, with means for each activity and subject; the resulting data set had 180 rows and 81 columns. Since there were 30 subject, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
+7. A new subset was created from the data set at step 6, with means for each activity and subject; the resulting data set had 180 rows and 81 columns. Since there were 30 subjects, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
 
-8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed, to comply with the rules for naming variables in a tidy data set. The "-" character was left in for readability, as it is difficult to understand names such as `tbodygyrojerkmagmean`. 
+8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed, to comply with the rules for naming variables in a tidy data set. The "-" character was left in for readability, as names such as `tbodygyrojerkmagmean` may be difficult to comprehend.
 
-9. The data set was saved to a text file. The user is provided with instructions on how to read the data set with either R or a spreadsheet sofware.
+9. The tidy data set was checked for presence of duplicate variables.
+
+10. The data set was saved to a text file. The user is provided with instructions on how to read the data set with either R or a spreadsheet software.
  
 
 ## Data Dictionary
+Except for `subject` (1 to 30), which is an integer, and `activity` (LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS), which is a factor, all the other variables are numeric, and represent averages of the measurements of the mean and standard deviations for each type of activity and subject. 
+
 ```
 subject
 activity 

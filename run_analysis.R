@@ -12,7 +12,6 @@ test <- read.table("UCI HAR Dataset/test/X_test.txt", sep="", na.strings = "NA")
 
 # Check for NA's
 sumNAs <- sum(is.na(train)) + sum(is.na(test))
-sumNAs
 
 # ---------------------------------- Task 1 ------------------------------------------
 # Merge datasets: train (7352 x 561) and test (2947 x 561). Resulting table should be 
@@ -58,7 +57,7 @@ subjectTrain <- read.csv("UCI HAR Dataset/train/subject_train.txt",sep="",header
 subjectTest <- read.csv("UCI HAR Dataset/test/subject_test.txt",sep="",header=FALSE)
 subject <- rbind(subjectTrain,subjectTest,deparse.level=0)
 
-for (ii in 1:nrow(subjectID)){ # same no of rows as in myData
+for (ii in 1:nrow(subject)){ # same no of rows as in myData
     myData$subject[ii] <- subject$V1[ii]
 }
 
@@ -70,9 +69,12 @@ finalData <- ddply(myData,.(subject, activity),numcolwise(mean,na.rm = TRUE))
 names(finalData) <- tolower(gsub("\\(\\)","",names(finalData)))
 # To remove the "-" use gsub("\\-","",names(finalData))
 
+# Finally, check for duplicates (there shouldn't be any, but ...)
+dups=which(duplicated(finalData))
+
 # Write the data set to a text file.
 write.table(finalData,"FinalDataSet.txt",row.names = FALSE)
 
 # Note: read.table will convert "-" to ".". To read remove the ".":
-# tt <- read.table("FinalDataSet.txt", header = TRUE)
-# names(tt) <- gsub("\\.","",names(tt))
+# x <- read.table("FinalDataSet.txt", header = TRUE)
+# names(x) <- gsub("\\.","",names(x))
