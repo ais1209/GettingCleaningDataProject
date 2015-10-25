@@ -23,7 +23,7 @@ fBodyGyro-XYZ,
 fBodyAccMag,
 fBodyAccJerkMag,
 fBodyGyroMag,
-fBodyGyroJerkMag.```
+fBodyGyroJerkMag.
 
 The set of variables that were estimated from these signals are: 
 ```
@@ -44,7 +44,7 @@ skewness(): skewness of the frequency domain signal
 kurtosis(): kurtosis of the frequency domain signal 
 bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
 angle(): Angle between to vectors.
-```
+
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 ```
 gravityMean
@@ -52,7 +52,7 @@ tBodyAccMean
 tBodyAccJerkMean
 tBodyGyroMean
 tBodyGyroJerkMean
-```
+
 
 ## Transformations
 
