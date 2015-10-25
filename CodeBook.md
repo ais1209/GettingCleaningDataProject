@@ -65,7 +65,7 @@ The following operations were performed on the original data set:
 
 3. The columns in the subset at step 2 were labeled according to the information in the *features.txt* file, which contains an ordered  list of all the variable names. 
 
-4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt* and y_train.txt and y_test.txt (which were merged, as well). These two filed list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt. Each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. The resulting data set had 80 columns.
+4. Variable `activity` was created, which assigned a name to each row according to *activity_labels.txt* and y_train.txt and y_test.txt (which were merged, as well). These two files list the activity identifiers corresponding to the measurements in X_train.txt and X_test.txt. In the (almost) tidy data set, each row corresponds to a particular activity: LAYING, SITTING,STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS. The resulting data set had 80 columns.
 
 5. The subject identification (a number from 1 to 30) was added as variable `subject`; data was obtained from the *subject_train.txt* and *subject_test.txt* files. The resulting data set had 81 columns.
 
@@ -73,7 +73,7 @@ The following operations were performed on the original data set:
 
 7. A new subset was created from the data set at step 6, by applying `ddply` to calculate the mean values for each activity and subject. The resulting data set had 180 rows and 81 columns. Since there were 30 subjects, each performing 6 activities, 180 = 30 x 6 is the correct number of rows.
 
-8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed to comply with the rules for naming variables in a tidy data set. The "-" character was left in for readability, as names such as `tbodygyrojerkmagmean` may be difficult to comprehend.
+8. Variable names were cleaned up: names were changed to lower case and the non-character "()" was removed to comply with the rules for naming variables in a tidy data set. The "-" was left in for readability; names such as `tbodygyrojerkmagmean` may be difficult to comprehend.
 
 9. The tidy data set was checked for presence of duplicate variables.
 
